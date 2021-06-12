@@ -24,7 +24,6 @@ countries_long <- countries %>%
                values_to = "AMOUNT"
                ) %>%
   rename(YEAR = year)
-suppressMessages(message())
 ```
 
 ## Imports from U.S. (in millions)
