@@ -46,5 +46,55 @@ U.S.-Liberia trade
 
 ![](README_files/figure-gfm/exports-plot-1.png)<!-- -->
 
+## Top 20 U.S. products exported to Liberia, 2011-2020 (U.S. dollars)
+
+| COMM\_DESC                                              |       TOTAL |
+|:--------------------------------------------------------|------------:|
+| Drilling & oilfield equipment                           | 244,157,652 |
+| Apparel, household goods - textile                      | 114,466,390 |
+| Passenger cars, new and used                            | 110,089,405 |
+| Wheat                                                   |  91,935,691 |
+| Rice                                                    |  91,010,618 |
+| Industrial machines, other                              |  80,355,872 |
+| Materials handling equipment                            |  72,068,800 |
+| Minimum value shipments                                 |  65,935,651 |
+| Finished metal shapes                                   |  62,853,404 |
+| Other foods                                             |  61,676,686 |
+| Measuring, testing, control instruments                 |  50,675,903 |
+| Petroleum products, other                               |  48,216,172 |
+| Excavating machinery                                    |  42,573,593 |
+| Railway transportation equipment                        |  33,432,660 |
+| Other parts and accessories of vehicles                 |  25,599,661 |
+| Cell phones and other household goods, n.e.c.           |  21,714,301 |
+| Meat, poultry, etc.                                     |  19,029,801 |
+| Plastic materials                                       |  18,724,345 |
+| Miscellaneous domestic exports and special transactions |  18,318,675 |
+| Electric apparatus                                      |  17,976,887 |
+
+## Top 20 U.S. products imported from Liberia, 2011-2020 (U.S. dollars)
+
+| COMM\_DESC                                    |       TOTAL |
+|:----------------------------------------------|------------:|
+| Natural rubber                                | 767,293,303 |
+| U.S. goods returned, and reimports            |  48,669,582 |
+| Sulfur, nonmetallic minerals                  |  11,864,409 |
+| Gem diamonds                                  |  10,497,980 |
+| Food oils, oilseeds                           |   4,917,110 |
+| Artwork, antiques, stamps, etc.               |   4,454,875 |
+| Nonmonetary gold                              |   1,839,060 |
+| Lumber                                        |     829,873 |
+| Cell phones and other household goods, n.e.c. |     729,439 |
+| Semiconductors                                |     705,627 |
+| Minimum value shipments                       |     523,140 |
+| Gem stones, other                             |     498,379 |
+| Pharmaceutical preparations                   |     210,985 |
+| Petroleum products, other                     |     200,279 |
+| Chemicals-other, n.e.c.                       |     171,395 |
+| Other parts and accessories of vehicles       |     164,138 |
+| Cocoa beans                                   |     161,011 |
+| Photo, service industry machinery             |     159,024 |
+| Synthetic rubber–primary                      |     148,952 |
+| Numismatic coins                              |     132,947 |
+
 Source: [U.S. Census
 Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)

@@ -45,7 +45,7 @@ write.csv(merged_tbl, "merged_tbl.csv")
 
 ```
 
-## Trade balance by year
+## U.S. trade balance with Liberia by year
 
 ```{r trade-balance, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
@@ -63,7 +63,7 @@ kable(merged_tbl, digits=1)
 
 ```
 
-## Imports from U.S. (in millions)
+## Imports from Liberia (in millions)
 
 ```{r imports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
@@ -74,7 +74,7 @@ ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
   
 ```
 
-## Exports to U.S. (in millions)
+## Exports to Liberia (in millions)
 
 ```{r exports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
@@ -85,6 +85,7 @@ ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
 
 ```
 
+## Top 20 U.S. products exported to Liberia, 2011-2020 (U.S. dollars)
 
 ```{r enduse-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
 
@@ -100,8 +101,63 @@ end_ex_long <- end_exports %>%
                names_pattern = "value_(\\d\\d)",
                values_to = "TOTAL"
                )
-
 write.csv(end_ex_long, "end_ex_long.csv")
+
+```
+
+```{r enduse-exports-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
+end_ex_long$YEAR <- sub("^", "20", end_ex_long$YEAR)
+end_ex_long$YEAR <- parse_date_time(end_ex_long$YEAR, "Y")
+
+ex_detail <- filter(end_ex_long, CTY_DESC=="Liberia")
+
+end_ex_by_year <- ex_detail %>% 
+                  group_by(COMM_DESC) %>% 
+                  summarise(TOTAL = 
+                  sum(TOTAL)) %>%
+                  arrange(desc(TOTAL))
+
+top_20_ex <- head(end_ex_by_year, 20)
+kable(top_20_ex, format.args = list(big.mark = ","))
+
+```
+
+## Top 20 U.S. products imported from Liberia, 2011-2020 (U.S. dollars)
+
+```{r enduse-imports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
+
+url <- 'https://www.census.gov/foreign-trade/statistics/product/enduse/imports/enduse_imports.xlsx'
+GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
+end_imports <- read_excel(TF)
+end_imports <- as_tibble(end_imports)
+attach(end_imports)
+
+end_im_long <- end_imports %>%
+  pivot_longer(!CTY_CODE:COMM_DESC, 
+               names_to = "YEAR", 
+               names_pattern = "value_(\\d\\d)",
+               values_to = "TOTAL"
+               )
+write.csv(end_im_long, "end_im_long.csv")
+
+end_im_long$YEAR <- sub("^", "20", end_im_long$YEAR)
+end_im_long$YEAR <- parse_date_time(end_im_long$YEAR, "Y")
+
+```
+
+```{r enduse-imports-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
+im_detail <- filter(end_im_long, CTY_DESC=="Liberia")
+
+end_im_by_year <- im_detail %>% 
+                  group_by(COMM_DESC) %>% 
+                  summarise(TOTAL = 
+                  sum(TOTAL)) %>%
+                  arrange(desc(TOTAL))
+
+top_20_im <- head(end_im_by_year, 20)
+kable(top_20_im, format.args = list(big.mark = ","))
 
 ```
 

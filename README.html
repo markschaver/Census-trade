@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="data:text/css,%0A%40font%2Dface%20%7B%0Afont%2Dfamily%3A%20octicons%2Dlink%3B%0Asrc%3A%20url%28data%3Afont%2Fwoff%3Bcharset%3Dutf%2D8%3Bbase64%2Cd09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM%2B8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB%2FaFGpk3jaTY6xa8JAGMW%2FO62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v%2Bk%2F0an2i%2BitHDw3v2%2B9%2BDBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3%2FI7AtxEJLtzzuZfI%2BVVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy%2FLt7Kc%2B0vWY%2FgAgIIEqAN9we0pwKXreiMasxvabDQMM4riO%2BqxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw%2Bymhce7vwM9jSqO8JyVd5RH9gyTt2%2BJ%2FyUmYlIR0s04n6%2B7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv%2FocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi%2BW2%2BMjCzMIDApSwvXzC97Z4Ig8N%2FBxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh%2F8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT%2BAEjAwuDFpBmA9KMDEwMCh9i%2Fv8H8sH0%2F4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9%2FlqYwOGZxeUelN2U2R6%2BcArgtCJpauW7UQBqnFkUsjAY%2FkOU1cP%2BDAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl%2BvvmM%2FbyA48e6tWrKArm4ZJlCbdsrxksL1AwWn%2FyBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO%2F%2FsdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd%2F89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF%2B9JOS0nbaaYDCQfwCJ7Au3AHj%2BLO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm%2BEBXuAbHmIMSRMs%2B4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL%2BhD7C1xoaHeLJSEao0FEW14ckxC%2BTU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13%2F%2Blm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl%2B9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O%2FAdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB%2F%2F%2FAA8AAQAAAAAAAAAAAAAAAAABAAAAAA%3D%3D%29%20format%28%27woff%27%29%3B%0A%7D%0Abody%20%7B%0A%2Dwebkit%2Dtext%2Dsize%2Dadjust%3A%20100%25%3B%0Atext%2Dsize%2Dadjust%3A%20100%25%3B%0Acolor%3A%20%23333%3B%0Afont%2Dfamily%3A%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20%22Segoe%20UI%22%2C%20Arial%2C%20freesans%2C%20sans%2Dserif%2C%20%22Apple%20Color%20Emoji%22%2C%20%22Segoe%20UI%20Emoji%22%2C%20%22Segoe%20UI%20Symbol%22%3B%0Afont%2Dsize%3A%2016px%3B%0Aline%2Dheight%3A%201%2E6%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0A%7D%0Aa%20%7B%0Abackground%2Dcolor%3A%20transparent%3B%0A%7D%0Aa%3Aactive%2C%0Aa%3Ahover%20%7B%0Aoutline%3A%200%3B%0A%7D%0Astrong%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%202em%3B%0Amargin%3A%200%2E67em%200%3B%0A%7D%0Aimg%20%7B%0Aborder%3A%200%3B%0A%7D%0Ahr%20%7B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Aheight%3A%200%3B%0A%7D%0Apre%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0Acode%2C%0Akbd%2C%0Apre%20%7B%0Afont%2Dfamily%3A%20monospace%2C%20monospace%3B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ainput%20%7B%0Acolor%3A%20inherit%3B%0Afont%3A%20inherit%3B%0Amargin%3A%200%3B%0A%7D%0Ahtml%20input%5Bdisabled%5D%20%7B%0Acursor%3A%20default%3B%0A%7D%0Ainput%20%7B%0Aline%2Dheight%3A%20normal%3B%0A%7D%0Ainput%5Btype%3D%22checkbox%22%5D%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0Apadding%3A%200%3B%0A%7D%0Atable%20%7B%0Aborder%2Dcollapse%3A%20collapse%3B%0Aborder%2Dspacing%3A%200%3B%0A%7D%0Atd%2C%0Ath%20%7B%0Apadding%3A%200%3B%0A%7D%0A%2A%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0A%7D%0Ainput%20%7B%0Afont%3A%2013px%20%2F%201%2E4%20Helvetica%2C%20arial%2C%20nimbussansl%2C%20liberationsans%2C%20freesans%2C%20clean%2C%20sans%2Dserif%2C%20%22Apple%20Color%20Emoji%22%2C%20%22Segoe%20UI%20Emoji%22%2C%20%22Segoe%20UI%20Symbol%22%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%234078c0%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%2C%0Aa%3Aactive%20%7B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%200%3B%0Amargin%3A%2015px%200%3B%0Aoverflow%3A%20hidden%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23ddd%3B%0A%7D%0Ahr%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ahr%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%2015px%3B%0Amargin%2Dbottom%3A%2015px%3B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%2030px%3B%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%2021px%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%2016px%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%2014px%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%2011px%3B%0A%7D%0Ablockquote%20%7B%0Amargin%3A%200%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Aol%20ol%2C%0Aul%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Droman%3B%0A%7D%0Aul%20ul%20ol%2C%0Aul%20ol%20ol%2C%0Aol%20ul%20ol%2C%0Aol%20ol%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Dalpha%3B%0A%7D%0Add%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0Afont%3A%2012px%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0A%7D%0A%2Eselect%3A%3A%2Dms%2Dexpand%20%7B%0Aopacity%3A%200%3B%0A%7D%0A%2Eocticon%20%7B%0Afont%3A%20normal%20normal%20normal%2016px%2F1%20octicons%2Dlink%3B%0Adisplay%3A%20inline%2Dblock%3B%0Atext%2Ddecoration%3A%20none%3B%0Atext%2Drendering%3A%20auto%3B%0A%2Dwebkit%2Dfont%2Dsmoothing%3A%20antialiased%3B%0A%2Dmoz%2Dosx%2Dfont%2Dsmoothing%3A%20grayscale%3B%0A%2Dwebkit%2Duser%2Dselect%3A%20none%3B%0A%2Dmoz%2Duser%2Dselect%3A%20none%3B%0A%2Dms%2Duser%2Dselect%3A%20none%3B%0Auser%2Dselect%3A%20none%3B%0A%7D%0A%2Eocticon%2Dlink%3Abefore%20%7B%0Acontent%3A%20%27%5Cf05c%27%3B%0A%7D%0A%2Emarkdown%2Dbody%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%20%21important%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%20%21important%3B%0A%7D%0Aa%3Anot%28%5Bhref%5D%29%20%7B%0Acolor%3A%20inherit%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0A%2Eanchor%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%2Dright%3A%202px%3B%0Amargin%2Dleft%3A%20%2D18px%3B%0A%7D%0A%2Eanchor%3Afocus%20%7B%0Aoutline%3A%20none%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%201em%3B%0Amargin%2Dbottom%3A%2016px%3B%0Afont%2Dweight%3A%20bold%3B%0Aline%2Dheight%3A%201%2E4%3B%0A%7D%0Ah1%20%2Eocticon%2Dlink%2C%0Ah2%20%2Eocticon%2Dlink%2C%0Ah3%20%2Eocticon%2Dlink%2C%0Ah4%20%2Eocticon%2Dlink%2C%0Ah5%20%2Eocticon%2Dlink%2C%0Ah6%20%2Eocticon%2Dlink%20%7B%0Acolor%3A%20%23000%3B%0Avertical%2Dalign%3A%20middle%3B%0Avisibility%3A%20hidden%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%2C%0Ah2%3Ahover%20%2Eanchor%2C%0Ah3%3Ahover%20%2Eanchor%2C%0Ah4%3Ahover%20%2Eanchor%2C%0Ah5%3Ahover%20%2Eanchor%2C%0Ah6%3Ahover%20%2Eanchor%20%7B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah2%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah3%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah4%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah5%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah6%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%20%7B%0Avisibility%3A%20visible%3B%0A%7D%0Ah1%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%202%2E25em%3B%0Aline%2Dheight%3A%201%2E2%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0A%7D%0Ah1%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%3B%0A%7D%0Ah2%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%201%2E75em%3B%0Aline%2Dheight%3A%201%2E225%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0A%7D%0Ah2%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%201%2E5em%3B%0Aline%2Dheight%3A%201%2E43%3B%0A%7D%0Ah3%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%201%2E25em%3B%0A%7D%0Ah4%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ah5%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%201em%3B%0Acolor%3A%20%23777%3B%0A%7D%0Ah6%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ap%2C%0Ablockquote%2C%0Aul%2C%0Aol%2C%0Adl%2C%0Atable%2C%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%204px%3B%0Apadding%3A%200%3B%0Amargin%3A%2016px%200%3B%0Abackground%2Dcolor%3A%20%23e7e7e7%3B%0Aborder%3A%200%20none%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%2Dleft%3A%202em%3B%0A%7D%0Aul%20ul%2C%0Aul%20ol%2C%0Aol%20ol%2C%0Aol%20ul%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Ali%3Ep%20%7B%0Amargin%2Dtop%3A%2016px%3B%0A%7D%0Adl%20%7B%0Apadding%3A%200%3B%0A%7D%0Adl%20dt%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%2016px%3B%0Afont%2Dsize%3A%201em%3B%0Afont%2Dstyle%3A%20italic%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Adl%20dd%20%7B%0Apadding%3A%200%2016px%3B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0Ablockquote%20%7B%0Apadding%3A%200%2015px%3B%0Acolor%3A%20%23777%3B%0Aborder%2Dleft%3A%204px%20solid%20%23ddd%3B%0A%7D%0Ablockquote%3E%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Ablockquote%3E%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Atable%20%7B%0Adisplay%3A%20block%3B%0Awidth%3A%20100%25%3B%0Aoverflow%3A%20auto%3B%0Aword%2Dbreak%3A%20normal%3B%0Aword%2Dbreak%3A%20keep%2Dall%3B%0A%7D%0Atable%20th%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Atable%20th%2C%0Atable%20td%20%7B%0Apadding%3A%206px%2013px%3B%0Aborder%3A%201px%20solid%20%23ddd%3B%0A%7D%0Atable%20tr%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Aborder%2Dtop%3A%201px%20solid%20%23ccc%3B%0A%7D%0Atable%20tr%3Anth%2Dchild%282n%29%20%7B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Abackground%2Dcolor%3A%20%23fff%3B%0A%7D%0Acode%20%7B%0Apadding%3A%200%3B%0Apadding%2Dtop%3A%200%2E2em%3B%0Apadding%2Dbottom%3A%200%2E2em%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%2085%25%3B%0Abackground%2Dcolor%3A%20rgba%280%2C0%2C0%2C0%2E04%29%3B%0Aborder%2Dradius%3A%203px%3B%0A%7D%0Acode%3Abefore%2C%0Acode%3Aafter%20%7B%0Aletter%2Dspacing%3A%20%2D0%2E2em%3B%0Acontent%3A%20%22%5C00a0%22%3B%0A%7D%0Apre%3Ecode%20%7B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%20100%25%3B%0Aword%2Dbreak%3A%20normal%3B%0Awhite%2Dspace%3A%20pre%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0A%2Ehighlight%20%7B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0A%2Ehighlight%20pre%2C%0Apre%20%7B%0Apadding%3A%2016px%3B%0Aoverflow%3A%20auto%3B%0Afont%2Dsize%3A%2085%25%3B%0Aline%2Dheight%3A%201%2E45%3B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0A%7D%0A%2Ehighlight%20pre%20%7B%0Amargin%2Dbottom%3A%200%3B%0Aword%2Dbreak%3A%20normal%3B%0A%7D%0Apre%20%7B%0Aword%2Dwrap%3A%20normal%3B%0A%7D%0Apre%20code%20%7B%0Adisplay%3A%20inline%3B%0Amax%2Dwidth%3A%20initial%3B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Aoverflow%3A%20initial%3B%0Aline%2Dheight%3A%20inherit%3B%0Aword%2Dwrap%3A%20normal%3B%0Abackground%2Dcolor%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0Apre%20code%3Abefore%2C%0Apre%20code%3Aafter%20%7B%0Acontent%3A%20normal%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%203px%205px%3B%0Afont%2Dsize%3A%2011px%3B%0Aline%2Dheight%3A%2010px%3B%0Acolor%3A%20%23555%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20%23fcfcfc%3B%0Aborder%3A%20solid%201px%20%23ccc%3B%0Aborder%2Dbottom%2Dcolor%3A%20%23bbb%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20%23bbb%3B%0A%7D%0A%2Epl%2Dc%20%7B%0Acolor%3A%20%23969896%3B%0A%7D%0A%2Epl%2Dc1%2C%0A%2Epl%2Ds%20%2Epl%2Dv%20%7B%0Acolor%3A%20%230086b3%3B%0A%7D%0A%2Epl%2De%2C%0A%2Epl%2Den%20%7B%0Acolor%3A%20%23795da3%3B%0A%7D%0A%2Epl%2Ds%20%2Epl%2Ds1%2C%0A%2Epl%2Dsmi%20%7B%0Acolor%3A%20%23333%3B%0A%7D%0A%2Epl%2Dent%20%7B%0Acolor%3A%20%2363a35c%3B%0A%7D%0A%2Epl%2Dk%20%7B%0Acolor%3A%20%23a71d5d%3B%0A%7D%0A%2Epl%2Dpds%2C%0A%2Epl%2Ds%2C%0A%2Epl%2Ds%20%2Epl%2Dpse%20%2Epl%2Ds1%2C%0A%2Epl%2Dsr%2C%0A%2Epl%2Dsr%20%2Epl%2Dcce%2C%0A%2Epl%2Dsr%20%2Epl%2Dsra%2C%0A%2Epl%2Dsr%20%2Epl%2Dsre%20%7B%0Acolor%3A%20%23183691%3B%0A%7D%0A%2Epl%2Dv%20%7B%0Acolor%3A%20%23ed6a43%3B%0A%7D%0A%2Epl%2Did%20%7B%0Acolor%3A%20%23b52a1d%3B%0A%7D%0A%2Epl%2Dii%20%7B%0Abackground%2Dcolor%3A%20%23b52a1d%3B%0Acolor%3A%20%23f8f8f8%3B%0A%7D%0A%2Epl%2Dsr%20%2Epl%2Dcce%20%7B%0Acolor%3A%20%2363a35c%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dml%20%7B%0Acolor%3A%20%23693a17%3B%0A%7D%0A%2Epl%2Dmh%2C%0A%2Epl%2Dmh%20%2Epl%2Den%2C%0A%2Epl%2Dms%20%7B%0Acolor%3A%20%231d3e81%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmq%20%7B%0Acolor%3A%20%23008080%3B%0A%7D%0A%2Epl%2Dmi%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0A%2Epl%2Dmb%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmd%20%7B%0Abackground%2Dcolor%3A%20%23ffecec%3B%0Acolor%3A%20%23bd2c00%3B%0A%7D%0A%2Epl%2Dmi1%20%7B%0Abackground%2Dcolor%3A%20%23eaffea%3B%0Acolor%3A%20%2355a532%3B%0A%7D%0A%2Epl%2Dmdr%20%7B%0Acolor%3A%20%23795da3%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmo%20%7B%0Acolor%3A%20%231d3e81%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%203px%205px%3B%0Afont%3A%2011px%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0Aline%2Dheight%3A%2010px%3B%0Acolor%3A%20%23555%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20%23fcfcfc%3B%0Aborder%3A%20solid%201px%20%23ccc%3B%0Aborder%2Dbottom%2Dcolor%3A%20%23bbb%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20%23bbb%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20%7B%0Alist%2Dstyle%2Dtype%3A%20none%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%2B%2Etask%2Dlist%2Ditem%20%7B%0Amargin%2Dtop%3A%203px%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20input%20%7B%0Amargin%3A%200%200%2E35em%200%2E25em%20%2D1%2E6em%3B%0Avertical%2Dalign%3A%20middle%3B%0A%7D%0A%3Achecked%2B%2Eradio%2Dlabel%20%7B%0Az%2Dindex%3A%201%3B%0Aposition%3A%20relative%3B%0Aborder%2Dcolor%3A%20%234078c0%3B%0A%7D%0A%2EsourceLine%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0A%7D%0Acode%20%2Ekw%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Edt%20%7B%20color%3A%20%23ed6a43%3B%20%7D%0Acode%20%2Edv%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Ebn%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Efl%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Ech%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Est%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Eco%20%7B%20color%3A%20%23969896%3B%20%7D%0Acode%20%2Eot%20%7B%20color%3A%20%230086b3%3B%20%7D%0Acode%20%2Eal%20%7B%20color%3A%20%23a61717%3B%20%7D%0Acode%20%2Efu%20%7B%20color%3A%20%2363a35c%3B%20%7D%0Acode%20%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%0Acode%20%2Ewa%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Ecn%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Esc%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Evs%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Ess%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Eim%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eva%20%7Bcolor%3A%20%23008080%3B%20%7D%0Acode%20%2Ecf%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eop%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Ebu%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eex%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Epp%20%7B%20color%3A%20%23999999%3B%20%7D%0Acode%20%2Eat%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Edo%20%7B%20color%3A%20%23969896%3B%20%7D%0Acode%20%2Ean%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Ecv%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Ein%20%7B%20color%3A%20%23008080%3B%20%7D%0A">
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="us-liberia-trade">U.S.-Liberia trade</h1>
+<h2 id="us-trade-balance-with-liberia-by-year">U.S. trade balance with Liberia by year</h2>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">YEAR</th>
+<th align="right">IMPORTS</th>
+<th align="right">EXPORTS</th>
+<th align="right">BALANCE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1992</td>
+<td align="right">12.3</td>
+<td align="right">30.6</td>
+<td align="right">18.3</td>
+</tr>
+<tr class="even">
+<td align="left">1993</td>
+<td align="right">3.0</td>
+<td align="right">39.1</td>
+<td align="right">36.1</td>
+</tr>
+<tr class="odd">
+<td align="left">1994</td>
+<td align="right">3.4</td>
+<td align="right">46.4</td>
+<td align="right">43.0</td>
+</tr>
+<tr class="even">
+<td align="left">1995</td>
+<td align="right">9.9</td>
+<td align="right">41.7</td>
+<td align="right">31.8</td>
+</tr>
+<tr class="odd">
+<td align="left">1996</td>
+<td align="right">26.9</td>
+<td align="right">49.8</td>
+<td align="right">22.9</td>
+</tr>
+<tr class="even">
+<td align="left">1997</td>
+<td align="right">4.7</td>
+<td align="right">42.8</td>
+<td align="right">38.1</td>
+</tr>
+<tr class="odd">
+<td align="left">1998</td>
+<td align="right">25.1</td>
+<td align="right">50.3</td>
+<td align="right">25.2</td>
+</tr>
+<tr class="even">
+<td align="left">1999</td>
+<td align="right">30.5</td>
+<td align="right">44.8</td>
+<td align="right">14.3</td>
+</tr>
+<tr class="odd">
+<td align="left">2000</td>
+<td align="right">45.5</td>
+<td align="right">43.0</td>
+<td align="right">-2.5</td>
+</tr>
+<tr class="even">
+<td align="left">2001</td>
+<td align="right">42.5</td>
+<td align="right">36.6</td>
+<td align="right">-5.9</td>
+</tr>
+<tr class="odd">
+<td align="left">2002</td>
+<td align="right">45.7</td>
+<td align="right">27.8</td>
+<td align="right">-17.9</td>
+</tr>
+<tr class="even">
+<td align="left">2003</td>
+<td align="right">59.5</td>
+<td align="right">33.3</td>
+<td align="right">-26.2</td>
+</tr>
+<tr class="odd">
+<td align="left">2004</td>
+<td align="right">84.3</td>
+<td align="right">60.9</td>
+<td align="right">-23.4</td>
+</tr>
+<tr class="even">
+<td align="left">2005</td>
+<td align="right">90.8</td>
+<td align="right">69.3</td>
+<td align="right">-21.5</td>
+</tr>
+<tr class="odd">
+<td align="left">2006</td>
+<td align="right">139.9</td>
+<td align="right">67.8</td>
+<td align="right">-72.1</td>
+</tr>
+<tr class="even">
+<td align="left">2007</td>
+<td align="right">115.2</td>
+<td align="right">75.8</td>
+<td align="right">-39.4</td>
+</tr>
+<tr class="odd">
+<td align="left">2008</td>
+<td align="right">143.5</td>
+<td align="right">156.7</td>
+<td align="right">13.2</td>
+</tr>
+<tr class="even">
+<td align="left">2009</td>
+<td align="right">80.4</td>
+<td align="right">94.7</td>
+<td align="right">14.4</td>
+</tr>
+<tr class="odd">
+<td align="left">2010</td>
+<td align="right">180.0</td>
+<td align="right">191.4</td>
+<td align="right">11.3</td>
+</tr>
+<tr class="even">
+<td align="left">2011</td>
+<td align="right">158.2</td>
+<td align="right">195.2</td>
+<td align="right">37.0</td>
+</tr>
+<tr class="odd">
+<td align="left">2012</td>
+<td align="right">144.0</td>
+<td align="right">241.1</td>
+<td align="right">97.1</td>
+</tr>
+<tr class="even">
+<td align="left">2013</td>
+<td align="right">96.5</td>
+<td align="right">173.2</td>
+<td align="right">76.7</td>
+</tr>
+<tr class="odd">
+<td align="left">2014</td>
+<td align="right">83.4</td>
+<td align="right">184.5</td>
+<td align="right">101.1</td>
+</tr>
+<tr class="even">
+<td align="left">2015</td>
+<td align="right">44.9</td>
+<td align="right">135.8</td>
+<td align="right">90.9</td>
+</tr>
+<tr class="odd">
+<td align="left">2016</td>
+<td align="right">64.1</td>
+<td align="right">158.0</td>
+<td align="right">93.9</td>
+</tr>
+<tr class="even">
+<td align="left">2017</td>
+<td align="right">91.2</td>
+<td align="right">138.3</td>
+<td align="right">47.2</td>
+</tr>
+<tr class="odd">
+<td align="left">2018</td>
+<td align="right">61.6</td>
+<td align="right">196.7</td>
+<td align="right">135.1</td>
+</tr>
+<tr class="even">
+<td align="left">2019</td>
+<td align="right">65.6</td>
+<td align="right">113.9</td>
+<td align="right">48.2</td>
+</tr>
+<tr class="odd">
+<td align="left">2020</td>
+<td align="right">45.1</td>
+<td align="right">93.2</td>
+<td align="right">48.1</td>
+</tr>
+<tr class="even">
+<td align="left">2021</td>
+<td align="right">21.7</td>
+<td align="right">28.6</td>
+<td align="right">6.9</td>
+</tr>
+</tbody>
+</table>
+<h2 id="imports-from-liberia-in-millions">Imports from Liberia (in millions)</h2>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<h2 id="exports-to-liberia-in-millions">Exports to Liberia (in millions)</h2>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<h2 id="top-20-us-products-exported-to-liberia-2011-2020-us-dollars">Top 20 U.S. products exported to Liberia, 2011-2020 (U.S. dollars)</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">COMM_DESC</th>
+<th align="right">TOTAL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Drilling &amp; oilfield equipment</td>
+<td align="right">244,157,652</td>
+</tr>
+<tr class="even">
+<td align="left">Apparel, household goods - textile</td>
+<td align="right">114,466,390</td>
+</tr>
+<tr class="odd">
+<td align="left">Passenger cars, new and used</td>
+<td align="right">110,089,405</td>
+</tr>
+<tr class="even">
+<td align="left">Wheat</td>
+<td align="right">91,935,691</td>
+</tr>
+<tr class="odd">
+<td align="left">Rice</td>
+<td align="right">91,010,618</td>
+</tr>
+<tr class="even">
+<td align="left">Industrial machines, other</td>
+<td align="right">80,355,872</td>
+</tr>
+<tr class="odd">
+<td align="left">Materials handling equipment</td>
+<td align="right">72,068,800</td>
+</tr>
+<tr class="even">
+<td align="left">Minimum value shipments</td>
+<td align="right">65,935,651</td>
+</tr>
+<tr class="odd">
+<td align="left">Finished metal shapes</td>
+<td align="right">62,853,404</td>
+</tr>
+<tr class="even">
+<td align="left">Other foods</td>
+<td align="right">61,676,686</td>
+</tr>
+<tr class="odd">
+<td align="left">Measuring, testing, control instruments</td>
+<td align="right">50,675,903</td>
+</tr>
+<tr class="even">
+<td align="left">Petroleum products, other</td>
+<td align="right">48,216,172</td>
+</tr>
+<tr class="odd">
+<td align="left">Excavating machinery</td>
+<td align="right">42,573,593</td>
+</tr>
+<tr class="even">
+<td align="left">Railway transportation equipment</td>
+<td align="right">33,432,660</td>
+</tr>
+<tr class="odd">
+<td align="left">Other parts and accessories of vehicles</td>
+<td align="right">25,599,661</td>
+</tr>
+<tr class="even">
+<td align="left">Cell phones and other household goods, n.e.c.</td>
+<td align="right">21,714,301</td>
+</tr>
+<tr class="odd">
+<td align="left">Meat, poultry, etc.</td>
+<td align="right">19,029,801</td>
+</tr>
+<tr class="even">
+<td align="left">Plastic materials</td>
+<td align="right">18,724,345</td>
+</tr>
+<tr class="odd">
+<td align="left">Miscellaneous domestic exports and special transactions</td>
+<td align="right">18,318,675</td>
+</tr>
+<tr class="even">
+<td align="left">Electric apparatus</td>
+<td align="right">17,976,887</td>
+</tr>
+</tbody>
+</table>
+<h2 id="top-20-us-products-imported-from-liberia-2011-2020-us-dollars">Top 20 U.S. products imported from Liberia, 2011-2020 (U.S. dollars)</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">COMM_DESC</th>
+<th align="right">TOTAL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Natural rubber</td>
+<td align="right">767,293,303</td>
+</tr>
+<tr class="even">
+<td align="left">U.S. goods returned, and reimports</td>
+<td align="right">48,669,582</td>
+</tr>
+<tr class="odd">
+<td align="left">Sulfur, nonmetallic minerals</td>
+<td align="right">11,864,409</td>
+</tr>
+<tr class="even">
+<td align="left">Gem diamonds</td>
+<td align="right">10,497,980</td>
+</tr>
+<tr class="odd">
+<td align="left">Food oils, oilseeds</td>
+<td align="right">4,917,110</td>
+</tr>
+<tr class="even">
+<td align="left">Artwork, antiques, stamps, etc.</td>
+<td align="right">4,454,875</td>
+</tr>
+<tr class="odd">
+<td align="left">Nonmonetary gold</td>
+<td align="right">1,839,060</td>
+</tr>
+<tr class="even">
+<td align="left">Lumber</td>
+<td align="right">829,873</td>
+</tr>
+<tr class="odd">
+<td align="left">Cell phones and other household goods, n.e.c.</td>
+<td align="right">729,439</td>
+</tr>
+<tr class="even">
+<td align="left">Semiconductors</td>
+<td align="right">705,627</td>
+</tr>
+<tr class="odd">
+<td align="left">Minimum value shipments</td>
+<td align="right">523,140</td>
+</tr>
+<tr class="even">
+<td align="left">Gem stones, other</td>
+<td align="right">498,379</td>
+</tr>
+<tr class="odd">
+<td align="left">Pharmaceutical preparations</td>
+<td align="right">210,985</td>
+</tr>
+<tr class="even">
+<td align="left">Petroleum products, other</td>
+<td align="right">200,279</td>
+</tr>
+<tr class="odd">
+<td align="left">Chemicals-other, n.e.c.</td>
+<td align="right">171,395</td>
+</tr>
+<tr class="even">
+<td align="left">Other parts and accessories of vehicles</td>
+<td align="right">164,138</td>
+</tr>
+<tr class="odd">
+<td align="left">Cocoa beans</td>
+<td align="right">161,011</td>
+</tr>
+<tr class="even">
+<td align="left">Photo, service industry machinery</td>
+<td align="right">159,024</td>
+</tr>
+<tr class="odd">
+<td align="left">Synthetic rubber–primary</td>
+<td align="right">148,952</td>
+</tr>
+<tr class="even">
+<td align="left">Numismatic coins</td>
+<td align="right">132,947</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.census.gov/foreign-trade/balance/c7650.html">U.S. Census Bureau</a></p>
+
+</body>
+</html>
