@@ -1,7 +1,7 @@
 U.S.-Liberia trade
 ================
 
-## Trade balance by year
+## U.S. trade balance with Liberia by year
 
 ![](README_files/figure-gfm/trade-balance-1.png)<!-- -->
 
@@ -38,11 +38,11 @@ U.S.-Liberia trade
 | 2020 |    45.1 |    93.2 |    48.1 |
 | 2021 |    21.7 |    28.6 |     6.9 |
 
-## Imports from U.S. (in millions)
+## Imports from Liberia (in millions)
 
 ![](README_files/figure-gfm/imports-plot-1.png)<!-- -->
 
-## Exports to U.S. (in millions)
+## Exports to Liberia (in millions)
 
 ![](README_files/figure-gfm/exports-plot-1.png)<!-- -->
 
