@@ -3,6 +3,8 @@ U.S.-Liberia trade
 
 ## Trade balance by year
 
+![](README_files/figure-gfm/trade-balance-1.png)<!-- -->
+
 | YEAR | IMPORTS | EXPORTS | BALANCE |
 |:-----|--------:|--------:|--------:|
 | 1992 |    12.3 |    30.6 |    18.3 |
