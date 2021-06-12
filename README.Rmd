@@ -4,6 +4,7 @@ output: rmarkdown::github_document
 ---
 
 ```{r data-prep, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
+
 library(htmltab)
 library(tidyverse)
 library(lubridate)
@@ -11,7 +12,9 @@ library(knitr)
 library(readxl)
 library(httr)
 
-url<-'https://www.census.gov/foreign-trade/balance/country.xlsx'
+setwd("~/OneDrive/03 Resources/Data/Census-trade/")
+
+url <- 'https://www.census.gov/foreign-trade/balance/country.xlsx'
 GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
 countries <- read_excel(TF)
 countries <- as_tibble(countries)
@@ -24,26 +27,46 @@ countries_long <- countries %>%
                values_to = "AMOUNT"
                ) %>%
   rename(YEAR = year)
+
 imports <- filter(countries_long, TYPE=="I" & CTYNAME=="Liberia")
 imports_by_year <- imports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
+
 exports <- filter(countries_long, TYPE=="E" & CTYNAME=="Liberia")
 exports_by_year <- exports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
+
 merged <- merge(imports_by_year, exports_by_year, by="YEAR")
 names(merged) <- c("YEAR", "IMPORTS", "EXPORTS")
+
 merged$BALANCE <- merged$EXPORTS - merged$IMPORTS
+merged$YEAR <- parse_date_time(merged$YEAR, "Y")
+merged_tbl <- merged
+
+write.csv(merged_tbl, "merged_tbl.csv")
+
 ```
 
 ## Trade balance by year
 
+```{r trade-balance, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
+merged_tbl$YEAR <- format(as.Date(merged$YEAR, format="%Y-%m-%d"),"%Y")
+ggplot(merged, aes(x = YEAR, y = BALANCE)) +
+    geom_bar(stat="identity") +
+    labs(x ="Year", y = "Trade balance in U.S. dollars (millions)") +
+    theme_minimal()
+
+```
+
 ```{r imports-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
-kable(merged, digits=1)
-merged$YEAR <- parse_date_time(merged$YEAR, "Y")
+
+kable(merged_tbl, digits=1)
 
 ```
 
 ## Imports from U.S. (in millions)
 
 ```{r imports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
 ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
   geom_bar(stat="identity") +
   labs(x = "Year", y = "Imports in U.S. dollars (millions)") +
@@ -54,10 +77,32 @@ ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
 ## Exports to U.S. (in millions)
 
 ```{r exports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
 ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
   geom_bar(stat="identity") +
   labs(x = "Year", y = "Exports in U.S. dollars (millions)") +
   theme_minimal()
+
+```
+
+
+```{r enduse-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
+
+url <- 'https://www.census.gov/foreign-trade/statistics/product/enduse/exports/enduse_exports.xlsx'
+GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
+end_exports <- read_excel(TF)
+end_exports <- as_tibble(end_exports)
+attach(end_exports)
+
+end_ex_long <- end_exports %>%
+  pivot_longer(!CTY_CODE:COMM_DESC, 
+               names_to = "YEAR", 
+               names_pattern = "value_(\\d\\d)",
+               values_to = "TOTAL"
+               )
+
+write.csv(end_ex_long, "end_ex_long.csv")
+
 ```
 
 Source: [U.S. Census Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
