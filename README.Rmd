@@ -24,38 +24,39 @@ countries_long <- countries %>%
                values_to = "AMOUNT"
                ) %>%
   rename(YEAR = year)
+imports <- filter(countries_long, TYPE=="I" & CTYNAME=="Liberia")
+imports_by_year <- imports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
+exports <- filter(countries_long, TYPE=="E" & CTYNAME=="Liberia")
+exports_by_year <- exports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
+merged <- merge(imports_by_year, exports_by_year, by="YEAR")
+names(merged) <- c("YEAR", "IMPORTS", "EXPORTS")
+merged$BALANCE <- merged$EXPORTS - merged$IMPORTS
+```
+
+## Trade balance by year
+
+```{r imports-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+kable(merged, digits=1)
+merged$YEAR <- parse_date_time(merged$YEAR, "Y")
+
 ```
 
 ## Imports from U.S. (in millions)
 
-```{r imports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
-imports <- filter(countries_long, TYPE=="I" & CTYNAME=="Liberia")
-by_year <- imports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
-kable(by_year)
-```
-
 ```{r imports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
-by_year$YEAR <- parse_date_time(by_year$YEAR, "Y")
-ggplot(by_year, aes(x = YEAR, y = TOTAL)) +
-  geom_line() +
-  labs(x = "Year", y = "U.S. dollars (millions)") +
+ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
+  geom_bar(stat="identity") +
+  labs(x = "Year", y = "Imports in U.S. dollars (millions)") +
   theme_minimal()
   
 ```
 
 ## Exports to U.S. (in millions)
 
-```{r exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
-exports <- filter(countries_long, TYPE=="E" & CTYNAME=="Liberia")
-by_year <- exports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
-kable(by_year)
-```
-
 ```{r exports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
-by_year$YEAR <- parse_date_time(by_year$YEAR, "Y")
-ggplot(by_year, aes(x = YEAR, y = TOTAL)) +
-  geom_line() +
-  labs(x = "Year", y = "U.S. dollars (millions)") +
+ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
+  geom_bar(stat="identity") +
+  labs(x = "Year", y = "Exports in U.S. dollars (millions)") +
   theme_minimal()
 ```
 
