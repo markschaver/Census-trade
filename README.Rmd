@@ -13,6 +13,7 @@ library(lubridate)
 library(knitr)
 library(readxl)
 library(httr)
+library(formattable)
 
 setwd("~/OneDrive/03 Resources/Data/Census-trade/")
 
@@ -70,7 +71,7 @@ kable(merged_tbl, digits=1)
 ```{r imports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
-  geom_bar(stat="identity") +
+  geom_line() +
   labs(x = "Year", y = "Imports in U.S. dollars (millions)") +
   theme_minimal()
 
@@ -81,7 +82,7 @@ ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
 ```{r exports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
-  geom_bar(stat="identity") +
+  geom_line() +
   labs(x = "Year", y = "Exports in U.S. dollars (millions)") +
   theme_minimal()
 
@@ -121,7 +122,9 @@ end_ex_by_year <- ex_detail %>%
                   arrange(desc(TOTAL))
 
 top_20_ex <- head(end_ex_by_year, 20)
-kable(top_20_ex, format.args = list(big.mark = ","))
+top_20_ex$TOTAL <-  currency(top_20_ex$TOTAL, digits = 0L)
+top_20_ex <- rename(top_20_ex, EXPORT = COMM_DESC)
+kable(top_20_ex)
 
 ```
 
@@ -159,23 +162,30 @@ end_im_by_year <- im_detail %>%
                   arrange(desc(TOTAL))
 
 top_20_im <- head(end_im_by_year, 20)
-kable(top_20_im, format.args = list(big.mark = ","))
+top_20_im$TOTAL <-  currency(top_20_im$TOTAL, digits = 0L)
+top_20_im <- rename(top_20_im, IMPORT = COMM_DESC)
+kable(top_20_im)
 
 ```
 
-## Rubber exports to U.S.
+## Liberian rubber exports to U.S.
 
-```{r rubber, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+```{r rubber-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 rubber <- im_detail %>%
         filter(COMM_DESC == 'Natural rubber')
-rubber$YEAR <- parse_date_time(rubber$YEAR, "Y")
-kable(select(rubber, YEAR, TOTAL), format.args = list(big.mark = ","))
 ggplot(rubber, aes(x = YEAR, y = TOTAL)) +
         geom_line () +
-        labs(x = "Year", y = "Exports to U.S. (in U.S. dollars)") +
+        labs(x = 'Year', y = 'Exports to U.S. (in U.S. dollars)') +
         scale_y_continuous(labels = scales::dollar) + 
         theme_minimal()
-
 ```
 
+```{r rubber-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
+rubber_tbl <- rubber
+rubber_tbl$YEAR <- format(as.Date(rubber_tbl$YEAR, format="%Y-%m-%d"),"%Y")
+rubber_tbl$TOTAL <-  currency(rubber_tbl$TOTAL, digits = 0L) 
+kable(select(rubber_tbl, YEAR, TOTAL), format.args = list(big.mark = ","))
+
+```
