@@ -1,6 +1,9 @@
 U.S.-Liberia trade
 ================
 
+Source: [U.S. Census
+Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
+
 ## U.S. trade balance with Liberia by year
 
 ![](README_files/figure-gfm/trade-balance-1.png)<!-- -->
@@ -96,5 +99,19 @@ U.S.-Liberia trade
 | Synthetic rubber–primary                      |     148,952 |
 | Numismatic coins                              |     132,947 |
 
-Source: [U.S. Census
-Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
+## Rubber exports to U.S.
+
+| YEAR       |       TOTAL |
+|:-----------|------------:|
+| 2011-01-01 | 156,754,793 |
+| 2012-01-01 | 142,848,717 |
+| 2013-01-01 |  91,242,140 |
+| 2014-01-01 |  73,396,277 |
+| 2015-01-01 |  41,155,589 |
+| 2016-01-01 |  41,143,163 |
+| 2017-01-01 |  59,409,074 |
+| 2018-01-01 |  56,124,030 |
+| 2019-01-01 |  61,563,489 |
+| 2020-01-01 |  43,656,031 |
+
+![](README_files/figure-gfm/rubber-1.png)<!-- -->

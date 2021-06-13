@@ -3,6 +3,8 @@ title: U.S.-Liberia trade
 output: rmarkdown::github_document
 ---
 
+Source: [U.S. Census Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
+
 ```{r data-prep, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
 
 library(htmltab)
@@ -21,8 +23,8 @@ countries <- as_tibble(countries)
 attach(countries)
 
 countries_long <- countries %>%
-  pivot_longer(!year:CTYNAME, 
-               names_to = c("TYPE","MONTH"), 
+  pivot_longer(!year:CTYNAME,
+               names_to = c("TYPE","MONTH"),
                names_pattern = "^(\\D)(\\D\\D\\D)",
                values_to = "AMOUNT"
                ) %>%
@@ -71,7 +73,7 @@ ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
   geom_bar(stat="identity") +
   labs(x = "Year", y = "Imports in U.S. dollars (millions)") +
   theme_minimal()
-  
+
 ```
 
 ## Exports to Liberia (in millions)
@@ -96,8 +98,8 @@ end_exports <- as_tibble(end_exports)
 attach(end_exports)
 
 end_ex_long <- end_exports %>%
-  pivot_longer(!CTY_CODE:COMM_DESC, 
-               names_to = "YEAR", 
+  pivot_longer(!CTY_CODE:COMM_DESC,
+               names_to = "YEAR",
                names_pattern = "value_(\\d\\d)",
                values_to = "TOTAL"
                )
@@ -112,9 +114,9 @@ end_ex_long$YEAR <- parse_date_time(end_ex_long$YEAR, "Y")
 
 ex_detail <- filter(end_ex_long, CTY_DESC=="Liberia")
 
-end_ex_by_year <- ex_detail %>% 
-                  group_by(COMM_DESC) %>% 
-                  summarise(TOTAL = 
+end_ex_by_year <- ex_detail %>%
+                  group_by(COMM_DESC) %>%
+                  summarise(TOTAL =
                   sum(TOTAL)) %>%
                   arrange(desc(TOTAL))
 
@@ -134,8 +136,8 @@ end_imports <- as_tibble(end_imports)
 attach(end_imports)
 
 end_im_long <- end_imports %>%
-  pivot_longer(!CTY_CODE:COMM_DESC, 
-               names_to = "YEAR", 
+  pivot_longer(!CTY_CODE:COMM_DESC,
+               names_to = "YEAR",
                names_pattern = "value_(\\d\\d)",
                values_to = "TOTAL"
                )
@@ -150,9 +152,9 @@ end_im_long$YEAR <- parse_date_time(end_im_long$YEAR, "Y")
 
 im_detail <- filter(end_im_long, CTY_DESC=="Liberia")
 
-end_im_by_year <- im_detail %>% 
-                  group_by(COMM_DESC) %>% 
-                  summarise(TOTAL = 
+end_im_by_year <- im_detail %>%
+                  group_by(COMM_DESC) %>%
+                  summarise(TOTAL =
                   sum(TOTAL)) %>%
                   arrange(desc(TOTAL))
 
@@ -161,4 +163,19 @@ kable(top_20_im, format.args = list(big.mark = ","))
 
 ```
 
-Source: [U.S. Census Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
+## Rubber exports to U.S.
+
+```{r rubber, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+
+rubber <- im_detail %>%
+        filter(COMM_DESC == 'Natural rubber')
+rubber$YEAR <- parse_date_time(rubber$YEAR, "Y")
+kable(select(rubber, YEAR, TOTAL), format.args = list(big.mark = ","))
+ggplot(rubber, aes(x = YEAR, y = TOTAL)) +
+        geom_line () +
+        labs(x = "Year", y = "Exports to U.S. (in U.S. dollars)") +
+        scale_y_continuous(labels = scales::dollar) + 
+        theme_minimal()
+
+```
+
