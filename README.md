@@ -39,7 +39,7 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 | 2018 |    61.6 |   196.7 |   135.1 |
 | 2019 |    65.6 |   113.9 |    48.2 |
 | 2020 |    45.1 |    93.2 |    48.1 |
-| 2021 |    21.7 |    28.6 |     6.9 |
+| 2021 |    27.6 |    35.5 |     8.0 |
 
 ## Imports from Liberia (in millions)
 
