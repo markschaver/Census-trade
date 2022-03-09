@@ -15,9 +15,9 @@ library(readxl)
 library(httr)
 library(formattable)
 
-setwd("~/OneDrive/03 Resources/Data/Census-trade/")
+setwd("~/OneDrive/Data/Census-trade/")
 
-url <- 'https://www.census.gov/foreign-trade/balance/country.xlsx'
+url <- "https://www.census.gov/foreign-trade/balance/country.xlsx"
 GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
 countries <- read_excel(TF)
 countries <- as_tibble(countries)
@@ -184,7 +184,7 @@ ggplot(rubber, aes(x = YEAR, y = TOTAL)) +
 ```{r rubber-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 rubber_tbl <- rubber
-rubber_tbl$YEAR <- format(as.Date(rubber_tbl$YEAR, format="%Y-%m-%d"),"%Y")
+rubber_tbl$YEAR <- format(as.Date(rubber_tbl$YEAR, format = "%Y-%m-%d"),"%Y")
 rubber_tbl$TOTAL <-  currency(rubber_tbl$TOTAL, digits = 0L) 
 kable(select(rubber_tbl, YEAR, TOTAL), format.args = list(big.mark = ","))
 
