@@ -25,19 +25,19 @@ attach(countries)
 
 countries_long <- countries %>%
   pivot_longer(!year:CTYNAME,
-               names_to = c("TYPE","MONTH"),
+               names_to = c("TYPE", "MONTH"),
                names_pattern = "^(\\D)(\\D\\D\\D)",
                values_to = "AMOUNT"
                ) %>%
   rename(YEAR = year)
 
-imports <- filter(countries_long, TYPE=="I" & CTYNAME=="Liberia")
+imports <- filter(countries_long, TYPE == "I" & CTYNAME == "Liberia")
 imports_by_year <- imports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
 
-exports <- filter(countries_long, TYPE=="E" & CTYNAME=="Liberia")
+exports <- filter(countries_long, TYPE == "E" & CTYNAME == "Liberia")
 exports_by_year <- exports %>% group_by(YEAR) %>% summarise(TOTAL = sum(AMOUNT))
 
-merged <- merge(imports_by_year, exports_by_year, by="YEAR")
+merged <- merge(imports_by_year, exports_by_year, by = "YEAR")
 names(merged) <- c("YEAR", "IMPORTS", "EXPORTS")
 
 merged$BALANCE <- merged$EXPORTS - merged$IMPORTS
@@ -52,17 +52,17 @@ write.csv(merged_tbl, "merged_tbl.csv")
 
 ```{r trade-balance, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
-merged_tbl$YEAR <- format(as.Date(merged$YEAR, format="%Y-%m-%d"),"%Y")
+merged_tbl$YEAR <- format(as.Date(merged$YEAR, format = "%Y-%m-%d"), "%Y")
 ggplot(merged, aes(x = YEAR, y = BALANCE)) +
-    geom_bar(stat="identity") +
-    labs(x ="Year", y = "Trade balance in U.S. dollars (millions)") +
+    geom_bar(stat = "identity") +
+    labs(x = "Year", y = "Trade balance in U.S. dollars (millions)") +
     theme_minimal()
 
 ```
 
 ```{r imports-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
-kable(merged_tbl, digits=1)
+kable(merged_tbl, digits = 1)
 
 ```
 
@@ -92,7 +92,7 @@ ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
 
 ```{r enduse-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
 
-url <- 'https://www.census.gov/foreign-trade/statistics/product/enduse/exports/enduse_exports.xlsx'
+url <- "https://www.census.gov/foreign-trade/statistics/product/enduse/exports/enduse_exports.xlsx"
 GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
 end_exports <- read_excel(TF)
 end_exports <- as_tibble(end_exports)
@@ -113,7 +113,7 @@ write.csv(end_ex_long, "end_ex_long.csv")
 end_ex_long$YEAR <- sub("^", "20", end_ex_long$YEAR)
 end_ex_long$YEAR <- parse_date_time(end_ex_long$YEAR, "Y")
 
-ex_detail <- filter(end_ex_long, CTY_DESC=="Liberia")
+ex_detail <- filter(end_ex_long, CTY_DESC == "Liberia")
 
 end_ex_by_year <- ex_detail %>%
                   group_by(COMM_DESC) %>%
@@ -132,7 +132,7 @@ kable(top_20_ex)
 
 ```{r enduse-imports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
 
-url <- 'https://www.census.gov/foreign-trade/statistics/product/enduse/imports/enduse_imports.xlsx'
+url <- "https://www.census.gov/foreign-trade/statistics/product/enduse/imports/enduse_imports.xlsx"
 GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
 end_imports <- read_excel(TF)
 end_imports <- as_tibble(end_imports)
@@ -153,7 +153,7 @@ end_im_long$YEAR <- parse_date_time(end_im_long$YEAR, "Y")
 
 ```{r enduse-imports-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
-im_detail <- filter(end_im_long, CTY_DESC=="Liberia")
+im_detail <- filter(end_im_long, CTY_DESC == "Liberia")
 
 end_im_by_year <- im_detail %>%
                   group_by(COMM_DESC) %>%
@@ -173,19 +173,19 @@ kable(top_20_im)
 ```{r rubber-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 rubber <- im_detail %>%
-        filter(COMM_DESC == 'Natural rubber')
+        filter(COMM_DESC == "Natural rubber")
 ggplot(rubber, aes(x = YEAR, y = TOTAL)) +
         geom_line () +
-        labs(x = 'Year', y = 'Exports to U.S. (in U.S. dollars)') +
-        scale_y_continuous(labels = scales::dollar) + 
+        labs(x = "Year", y = "Exports to U.S. (in U.S. dollars)") +
+        scale_y_continuous(labels = scales::dollar) +
         theme_minimal()
 ```
 
 ```{r rubber-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 rubber_tbl <- rubber
-rubber_tbl$YEAR <- format(as.Date(rubber_tbl$YEAR, format = "%Y-%m-%d"),"%Y")
-rubber_tbl$TOTAL <-  currency(rubber_tbl$TOTAL, digits = 0L) 
+rubber_tbl$YEAR <- format(as.Date(rubber_tbl$YEAR, format = "%Y-%m-%d"), "%Y")
+rubber_tbl$TOTAL <-  currency(rubber_tbl$TOTAL, digits = 0L)
 kable(select(rubber_tbl, YEAR, TOTAL), format.args = list(big.mark = ","))
-
 ```
+
