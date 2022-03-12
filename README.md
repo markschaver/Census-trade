@@ -39,7 +39,8 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 | 2018 |    61.6 |   196.7 |   135.1 |
 | 2019 |    65.6 |   113.9 |    48.2 |
 | 2020 |    45.1 |    93.2 |    48.1 |
-| 2021 |    27.6 |    35.5 |     8.0 |
+| 2021 |    72.9 |   143.4 |    70.5 |
+| 2022 |     8.6 |     4.0 |    -4.6 |
 
 ## Imports from Liberia (in millions)
 
@@ -49,55 +50,55 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 
 ![](README_files/figure-gfm/exports-plot-1.png)<!-- -->
 
-## Top 20 U.S. products exported to Liberia, 2011-2020 (U.S. dollars)
+## Top 20 U.S. products exported to Liberia, 2011-2021 (U.S. dollars)
 
 | EXPORT                                                  |        TOTAL |
 |:--------------------------------------------------------|-------------:|
-| Drilling & oilfield equipment                           | $244,157,652 |
-| Apparel, household goods - textile                      | $114,466,390 |
-| Passenger cars, new and used                            | $110,089,405 |
-| Wheat                                                   |  $91,935,691 |
-| Rice                                                    |  $91,010,618 |
-| Industrial machines, other                              |  $80,355,872 |
-| Materials handling equipment                            |  $72,068,800 |
-| Minimum value shipments                                 |  $65,935,651 |
-| Finished metal shapes                                   |  $62,853,404 |
-| Other foods                                             |  $61,676,686 |
-| Measuring, testing, control instruments                 |  $50,675,903 |
-| Petroleum products, other                               |  $48,216,172 |
-| Excavating machinery                                    |  $42,573,593 |
-| Railway transportation equipment                        |  $33,432,660 |
-| Other parts and accessories of vehicles                 |  $25,599,661 |
-| Cell phones and other household goods, n.e.c.           |  $21,714,301 |
-| Meat, poultry, etc.                                     |  $19,029,801 |
-| Plastic materials                                       |  $18,724,345 |
-| Miscellaneous domestic exports and special transactions |  $18,318,675 |
-| Electric apparatus                                      |  $17,976,887 |
+| Drilling & oilfield equipment                           | $237,283,818 |
+| Apparel, household goods - textile                      | $109,900,255 |
+| Passenger cars, new and used                            |  $99,011,878 |
+| Wheat                                                   |  $85,930,665 |
+| Industrial machines, other                              |  $82,139,189 |
+| Petroleum products, other                               |  $79,738,466 |
+| Materials handling equipment                            |  $73,479,129 |
+| Minimum value shipments                                 |  $64,488,879 |
+| Rice                                                    |  $63,609,205 |
+| Other foods                                             |  $59,853,777 |
+| Finished metal shapes                                   |  $52,333,218 |
+| Measuring, testing, control instruments                 |  $40,515,108 |
+| Railway transportation equipment                        |  $35,895,517 |
+| Excavating machinery                                    |  $35,199,029 |
+| Cell phones and other household goods, n.e.c.           |  $31,054,828 |
+| Other parts and accessories of vehicles                 |  $26,900,397 |
+| Plastic materials                                       |  $19,024,746 |
+| Miscellaneous domestic exports and special transactions |  $18,304,840 |
+| Electric apparatus                                      |  $18,046,602 |
+| Iron and steel products, other                          |  $17,187,983 |
 
-## Top 20 U.S. products imported from Liberia, 2011-2020 (U.S. dollars)
+## Top 20 U.S. products imported from Liberia, 2011-2021 (U.S. dollars)
 
 | IMPORT                                        |        TOTAL |
 |:----------------------------------------------|-------------:|
-| Natural rubber                                | $767,293,303 |
-| U.S. goods returned, and reimports            |  $48,669,582 |
-| Sulfur, nonmetallic minerals                  |  $11,864,409 |
-| Gem diamonds                                  |  $10,497,980 |
-| Food oils, oilseeds                           |   $4,917,110 |
-| Artwork, antiques, stamps, etc.               |   $4,454,875 |
-| Nonmonetary gold                              |   $1,839,060 |
-| Lumber                                        |     $829,873 |
-| Cell phones and other household goods, n.e.c. |     $729,439 |
+| Natural rubber                                | $680,985,043 |
+| U.S. goods returned, and reimports            |  $49,177,464 |
+| Sulfur, nonmetallic minerals                  |  $11,853,159 |
+| Gem diamonds                                  |  $10,828,818 |
+| Food oils, oilseeds                           |   $5,407,479 |
+| Artwork, antiques, stamps, etc.               |   $4,098,537 |
 | Semiconductors                                |     $705,627 |
-| Minimum value shipments                       |     $523,140 |
+| Cell phones and other household goods, n.e.c. |     $669,128 |
+| Minimum value shipments                       |     $599,990 |
+| Nonmonetary gold                              |     $548,560 |
+| Numismatic coins                              |     $511,571 |
+| Lumber                                        |     $506,348 |
 | Gem stones, other                             |     $498,379 |
+| Petroleum products, other                     |     $277,697 |
 | Pharmaceutical preparations                   |     $210,985 |
-| Petroleum products, other                     |     $200,279 |
 | Chemicals-other, n.e.c.                       |     $171,395 |
-| Other parts and accessories of vehicles       |     $164,138 |
-| Cocoa beans                                   |     $161,011 |
+| Other parts and accessories of vehicles       |     $166,638 |
+| Electric apparatus                            |     $161,214 |
 | Photo, service industry machinery             |     $159,024 |
-| Synthetic rubber–primary                      |     $148,952 |
-| Numismatic coins                              |     $132,947 |
+| Synthetic rubber–primary                      |     $140,502 |
 
 ## Liberian rubber exports to U.S.
 
@@ -105,7 +106,6 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 
 | YEAR |        TOTAL |
 |:-----|-------------:|
-| 2011 | $156,754,793 |
 | 2012 | $142,848,717 |
 | 2013 |  $91,242,140 |
 | 2014 |  $73,396,277 |
@@ -115,3 +115,4 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 | 2018 |  $56,124,030 |
 | 2019 |  $61,563,489 |
 | 2020 |  $43,656,031 |
+| 2021 |  $70,446,533 |

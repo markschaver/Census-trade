@@ -88,7 +88,7 @@ ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
 
 ```
 
-## Top 20 U.S. products exported to Liberia, 2011-2020 (U.S. dollars)
+## Top 20 U.S. products exported to Liberia, 2011-2021 (U.S. dollars)
 
 ```{r enduse-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
 
@@ -128,7 +128,7 @@ kable(top_20_ex)
 
 ```
 
-## Top 20 U.S. products imported from Liberia, 2011-2020 (U.S. dollars)
+## Top 20 U.S. products imported from Liberia, 2011-2021 (U.S. dollars)
 
 ```{r enduse-imports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
 
