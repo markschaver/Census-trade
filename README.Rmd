@@ -115,11 +115,41 @@ end_ex_long$YEAR <- parse_date_time(end_ex_long$YEAR, "Y")
 
 ex_detail <- filter(end_ex_long, CTY_DESC == "Liberia")
 
+
+# US exports to Liberial all years sorted from most to least
 end_ex_by_year <- ex_detail %>%
                   group_by(COMM_DESC) %>%
-                  summarise(TOTAL =
-                  sum(TOTAL)) %>%
+                  summarise(TOTAL = sum(TOTAL)) %>%
                   arrange(desc(TOTAL))
+
+# US exports to Liberia most recent year sorted from most to least
+end_ex_latest_year <- ex_detail %>%
+                  filter(year(YEAR) == max(year(YEAR))) %>%
+                  group_by(COMM_DESC) %>%
+                  summarise(TOTAL = sum(TOTAL)) %>%
+                  arrange(desc(TOTAL))
+
+
+# TODO: Finish this section plotting commodity by year
+# TODO: Do this using small multiples
+# https://www.sharpsightlabs.com/blog/small-multiples-ggplot/
+# https://www.storybench.org/make-small-multiples-r-using-geom_line/
+# https://r-graph-gallery.com/241-custom-layout-strip-ggplot2.html
+# https://towardsdatascience.com/how-to-make-beautiful-small-multiple-us-maps-in-r-ad7e557cd463
+
+end_comm_by_year <- ex_detail %>%
+group_by(YEAR) %>%
+arrange(desc(COMM_DESC))
+
+end_comm_by_year <- select(end_comm_by_year, COMM_DESC, YEAR, TOTAL)
+view(end_comm_by_year)
+
+ggplot(end_comm_by_year, aes(x = YEAR, y = TOTAL, group = 1)) +
+  geom_line() +
+  facet_wrap(~COMM_DESC) +
+  ggtitle("US exports to Liberia")
+ 
+# ---
 
 top_20_ex <- head(end_ex_by_year, 20)
 top_20_ex$TOTAL <-  currency(top_20_ex$TOTAL, digits = 0L)
