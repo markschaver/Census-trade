@@ -40,7 +40,7 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 | 2019 |    65.6 |   113.9 |    48.2 |
 | 2020 |    45.1 |    93.2 |    48.1 |
 | 2021 |    72.9 |   143.4 |    70.5 |
-| 2022 |     8.6 |     4.0 |    -4.6 |
+| 2022 |    13.3 |    25.7 |    12.4 |
 
 ## Imports from Liberia (in millions)
 
@@ -50,32 +50,42 @@ Bureau](https://www.census.gov/foreign-trade/balance/c7650.html)
 
 ![](README_files/figure-gfm/exports-plot-1.png)<!-- -->
 
-## Top 20 U.S. products exported to Liberia, 2011-2021 (U.S. dollars)
+## Top 30 exports from the U.S. to Liberia, 2021 (U.S. dollars)
 
-| EXPORT                                                  |        TOTAL |
-|:--------------------------------------------------------|-------------:|
-| Drilling & oilfield equipment                           | $237,283,818 |
-| Apparel, household goods - textile                      | $109,900,255 |
-| Passenger cars, new and used                            |  $99,011,878 |
-| Wheat                                                   |  $85,930,665 |
-| Industrial machines, other                              |  $82,139,189 |
-| Petroleum products, other                               |  $79,738,466 |
-| Materials handling equipment                            |  $73,479,129 |
-| Minimum value shipments                                 |  $64,488,879 |
-| Rice                                                    |  $63,609,205 |
-| Other foods                                             |  $59,853,777 |
-| Finished metal shapes                                   |  $52,333,218 |
-| Measuring, testing, control instruments                 |  $40,515,108 |
-| Railway transportation equipment                        |  $35,895,517 |
-| Excavating machinery                                    |  $35,199,029 |
-| Cell phones and other household goods, n.e.c.           |  $31,054,828 |
-| Other parts and accessories of vehicles                 |  $26,900,397 |
-| Plastic materials                                       |  $19,024,746 |
-| Miscellaneous domestic exports and special transactions |  $18,304,840 |
-| Electric apparatus                                      |  $18,046,602 |
-| Iron and steel products, other                          |  $17,187,983 |
+| COMM_DESC                                               |      TOTAL |
+|:--------------------------------------------------------|-----------:|
+| Petroleum products, other                               | 31,798,291 |
+| Passenger cars, new and used                            | 14,598,426 |
+| Cell phones and other household goods, n.e.c.           | 10,343,752 |
+| Railway transportation equipment                        |  7,713,592 |
+| Apparel, household goods - textile                      |  7,569,961 |
+| Industrial machines, other                              |  7,550,596 |
+| Other foods                                             |  6,791,604 |
+| Minimum value shipments                                 |  5,677,837 |
+| Pharmaceutical preparations                             |  5,081,640 |
+| Glassware, chinaware                                    |  4,217,211 |
+| Fuel oil                                                |  3,600,000 |
+| Excavating machinery                                    |  3,155,228 |
+| Other parts and accessories of vehicles                 |  2,877,120 |
+| Materials handling equipment                            |  2,365,220 |
+| Medicinal Equipment                                     |  1,777,123 |
+| Miscellaneous domestic exports and special transactions |  1,738,351 |
+| Finished metal shapes                                   |  1,588,022 |
+| Rice                                                    |  1,503,360 |
+| Computers                                               |  1,473,395 |
+| Plastic materials                                       |  1,442,284 |
+| Logs and lumber                                         |  1,427,176 |
+| Trucks, buses and special purpose vehicles              |  1,386,387 |
+| Chemicals-other                                         |  1,343,483 |
+| Drilling & oilfield equipment                           |  1,275,224 |
+| Measuring, testing, control instruments                 |  1,195,053 |
+| Furniture, household goods, etc.                        |    765,271 |
+| Household appliances                                    |    740,730 |
+| Electric apparatus                                      |    634,722 |
+| Apparel,household goods-nontextile                      |    616,764 |
+| Chemicals-inorganic                                     |    608,042 |
 
-## Top 20 U.S. products imported from Liberia, 2011-2021 (U.S. dollars)
+## Top 30 imports from Liberia to the U.S. 2021 (U.S. dollars)
 
 | IMPORT                                        |        TOTAL |
 |:----------------------------------------------|-------------:|
