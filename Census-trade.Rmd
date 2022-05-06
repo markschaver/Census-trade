@@ -15,7 +15,7 @@ library(readxl)
 library(httr)
 library(formattable)
 
-setwd("~/OneDrive/Data/Census-trade/")
+setwd("~/OneDrive/Code/Census-trade/")
 
 url <- "https://www.census.gov/foreign-trade/balance/country.xlsx"
 GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
