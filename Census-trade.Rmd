@@ -14,6 +14,7 @@ library(knitr)
 library(readxl)
 library(httr)
 library(formattable)
+theme_set(theme_light())
 
 setwd("~/OneDrive/Code/Census-trade/")
 
@@ -44,19 +45,28 @@ merged$BALANCE <- merged$EXPORTS - merged$IMPORTS
 merged$YEAR <- parse_date_time(merged$YEAR, "Y")
 merged_tbl <- merged
 
-write.csv(merged_tbl, "merged_tbl.csv")
+url <- "https://www.census.gov/foreign-trade/statistics/product/enduse/exports/enduse_exports.xlsx"
+GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
+end_exports <- read_excel(TF)
+end_exports <- as_tibble(end_exports)
+attach(end_exports)
+
+url <- "https://www.census.gov/foreign-trade/statistics/product/enduse/imports/enduse_imports.xlsx"
+GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
+end_imports <- read_excel(TF)
+end_imports <- as_tibble(end_imports)
+attach(end_imports)
 
 ```
 
-## U.S. trade balance with Liberia by year ####
+## U.S. Trade Balance with Liberia by Year
 
 ```{r trade-balance, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 merged_tbl$YEAR <- format(as.Date(merged$YEAR, format = "%Y-%m-%d"), "%Y")
 ggplot(merged, aes(x = YEAR, y = BALANCE)) +
-    geom_bar(stat = "identity") +
-    labs(x = "Year", y = "Trade balance in U.S. dollars (millions)") +
-    theme_minimal()
+    geom_bar(stat = "identity", fill = "#345D96") +
+    labs(x = "", y = "Trade balance in U.S. dollars (millions)")
 
 ```
 
@@ -66,37 +76,29 @@ kable(merged_tbl, digits = 1)
 
 ```
 
-## Imports from Liberia (in millions) ####
+## Imports from Liberia (in millions)
 
 ```{r imports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 ggplot(merged, aes(x = YEAR, y = IMPORTS)) +
-  geom_line() +
-  labs(x = "Year", y = "Imports in U.S. dollars (millions)") +
-  theme_minimal()
+  geom_line(color = "#345D96", size = 1) +
+  labs(x = "", y = "Imports in U.S. dollars (millions)")
 
 ```
 
-## Exports to Liberia (in millions) ####
+## Exports to Liberia (in millions)
 
 ```{r exports-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 ggplot(merged, aes(x = YEAR, y = EXPORTS)) +
-  geom_line() +
-  labs(x = "Year", y = "Exports in U.S. dollars (millions)") +
-  theme_minimal()
+  geom_line(color = "#345D96", size = 1) +
+  labs(x = "", y = "Exports in U.S. dollars (millions)")
 
 ```
 
-## Top 30 exports from the U.S. to Liberia, 2021 (U.S. dollars) ####
+## Top 30 Exports from the U.S. to Liberia (2021)
 
-```{r enduse-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
-
-url <- "https://www.census.gov/foreign-trade/statistics/product/enduse/exports/enduse_exports.xlsx"
-GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
-end_exports <- read_excel(TF)
-end_exports <- as_tibble(end_exports)
-attach(end_exports)
+```{r enduse-exports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 end_ex_long <- end_exports %>%
   pivot_longer(!CTY_CODE:COMM_DESC,
@@ -104,61 +106,28 @@ end_ex_long <- end_exports %>%
                names_pattern = "value_(\\d\\d)",
                values_to = "TOTAL"
                )
-write.csv(end_ex_long, "end_ex_long.csv")
-
-```
-
-```{r enduse-exports-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 end_ex_long$YEAR <- sub("^", "20", end_ex_long$YEAR)
 end_ex_long$YEAR <- parse_date_time(end_ex_long$YEAR, "Y")
 
 ex_detail <- filter(end_ex_long, CTY_DESC == "Liberia")
 
-
-# US exports to Liberia most recent year sorted from most to least
-end_ex_latest_year <- ex_detail %>%
-                  filter(year(YEAR) == max(year(YEAR))) %>%
+end_ex_by_year <- ex_detail %>%
                   group_by(COMM_DESC) %>%
-                  summarise(TOTAL = sum(TOTAL)) %>%
+                  summarise(TOTAL =
+                  sum(TOTAL)) %>%
                   arrange(desc(TOTAL))
 
-kable(head(end_ex_latest_year, n = 30), digits = 1, format.args = list(big.mark = ","))
-
-# # US exports to Liberia all years sorted from most to least ####
-# end_ex_by_year <- ex_detail %>%
-#                   group_by(COMM_DESC) %>%
-#                   summarise(TOTAL = sum(TOTAL)) %>%
-#                   arrange(desc(TOTAL))
-# 
-# top_20_ex <- head(end_ex_by_year, 20)
-# top_20_ex$TOTAL <-  currency(top_20_ex$TOTAL, digits = 0L)
-# top_20_ex <- rename(top_20_ex, EXPORT = COMM_DESC)
-# kable(top_20_ex)
-
-# Facet line plot of all US exports to Liberia by year ####
-# end_comm_by_year <- ex_detail %>%
-# group_by(YEAR) %>%
-# arrange(desc(COMM_DESC))
-# 
-# end_comm_by_year <- select(end_comm_by_year, COMM_DESC, YEAR, TOTAL)
-# 
-# ggplot(end_comm_by_year, aes(x = YEAR, y = TOTAL, group = 1)) +
-#   geom_line() +
-#   facet_wrap(~COMM_DESC) +
-#   ggtitle("US exports to Liberia")
+top_20_ex <- head(end_ex_by_year, 20)
+top_20_ex$TOTAL <-  currency(top_20_ex$TOTAL, digits = 0L)
+top_20_ex <- rename(top_20_ex, EXPORT = COMM_DESC)
+kable(top_20_ex)
 
 ```
 
-## Top 30 imports from Liberia to the U.S. 2021 (U.S. dollars) ####
+## Top 30 Imports from Liberia to the U.S. (2021)
 
-```{r enduse-imports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE, include=FALSE}
-
-url <- "https://www.census.gov/foreign-trade/statistics/product/enduse/imports/enduse_imports.xlsx"
-GET(url, write_disk(TF <- tempfile(fileext = ".xlsx")))
-end_imports <- read_excel(TF)
-end_imports <- as_tibble(end_imports)
-attach(end_imports)
+```{r enduse-imports, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 end_im_long <- end_imports %>%
   pivot_longer(!CTY_CODE:COMM_DESC,
@@ -166,14 +135,8 @@ end_im_long <- end_imports %>%
                names_pattern = "value_(\\d\\d)",
                values_to = "TOTAL"
                )
-write.csv(end_im_long, "end_im_long.csv")
-
 end_im_long$YEAR <- sub("^", "20", end_im_long$YEAR)
 end_im_long$YEAR <- parse_date_time(end_im_long$YEAR, "Y")
-
-```
-
-```{r enduse-imports-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 im_detail <- filter(end_im_long, CTY_DESC == "Liberia")
 
@@ -190,17 +153,16 @@ kable(top_20_im)
 
 ```
 
-## Liberian rubber exports to U.S. ####
+## Liberian Rubber Exports to U.S.
 
 ```{r rubber-plot, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 
 rubber <- im_detail %>%
         filter(COMM_DESC == "Natural rubber")
 ggplot(rubber, aes(x = YEAR, y = TOTAL)) +
-        geom_line () +
-        labs(x = "Year", y = "Exports to U.S. (in U.S. dollars)") +
-        scale_y_continuous(labels = scales::dollar) +
-        theme_minimal()
+        geom_line(color = "#345D96", size = 1) +
+        labs(x = "", y = "Exports to U.S. (in U.S. dollars)") +
+        scale_y_continuous(labels = scales::dollar)
 ```
 
 ```{r rubber-table, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
@@ -210,4 +172,3 @@ rubber_tbl$YEAR <- format(as.Date(rubber_tbl$YEAR, format = "%Y-%m-%d"), "%Y")
 rubber_tbl$TOTAL <-  currency(rubber_tbl$TOTAL, digits = 0L)
 kable(select(rubber_tbl, YEAR, TOTAL), format.args = list(big.mark = ","))
 ```
-
