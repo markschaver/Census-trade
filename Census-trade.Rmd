@@ -1,5 +1,6 @@
 ---
 title: U.S.-Liberia trade
+date: "`r format(Sys.Date(), format='%A, %B %d, %Y')`"
 output: rmarkdown::github_document
 ---
 
